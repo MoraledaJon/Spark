@@ -5,7 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Kojin Folder/Haketa/TopScene.unity
+    guid: e3a664264091b4447ae4126dc0c0c1d9
+  - enabled: 1
+    path: Assets/Kojin Folder/Haketa/StoryScene.unity
+    guid: a06eefda061f7264ba15c36bcb34ef71
+  - enabled: 1
+    path: Assets/Kojin Folder/Haketa/HomeScene.unity
+    guid: 507a327025734694aaed38da5a5ca8f1
+  - enabled: 1
+    path: Assets/Kojin Folder/Haketa/StageSelectScene.unity
+    guid: b960a905bda2d11458fe0eba58783f79
+  - enabled: 1
+    path: Assets/Kojin Folder/Haketa/SideStorySelctScene.unity
+    guid: 9a41552fed51a4740bbc0f384ac7442e
+  - enabled: 1
+    path: Assets/Kojin Folder/Haketa/SideStoryScene.unity
+    guid: c1e379b1c79d38948bd14507fa622b80
+  - enabled: 1
+    path: Assets/Kojin Folder/Haketa/SideStory2Scene.unity
+    guid: 403ec6c0db157b3419171e3f1c9c9d7f
   m_configObjects: {}
