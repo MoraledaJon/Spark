@@ -23,6 +23,7 @@ public class ButtonManager : MonoBehaviour
 
 
 
+
     public void Button1Animation()
     {
         button1Anim.SetBool("isClick", true);
@@ -69,13 +70,41 @@ public class ButtonManager : MonoBehaviour
         {
             if (result == miniGameManager.word)
             {
-
-                winAnimator.SetTrigger("win");
+                WinOrLose(true);
+                miniGameManager.timerIsRunning = false;
             }
             else
             {
-                winAnimator.SetTrigger("lose");
+                button1Anim.SetBool("isClick", false);
+                button2Anim.SetBool("isClick", false);
+                button3Anim.SetBool("isClick", false);
+                button4Anim.SetBool("isClick", false);
+                button5Anim.SetBool("isClick", false);
+                buttons[0].enabled = true;
+                buttons[1].enabled = true;
+                buttons[2].enabled = true;
+                buttons[3].enabled = true;
+                buttons[4].enabled = true;
+                clickCount = 0;
+                result = "";
             }
+        }
+    }
+
+    public void WinOrLose(bool result)
+    {
+        if(result)
+        {
+            winAnimator.SetTrigger("win");
+        }
+        else
+        {
+            winAnimator.SetTrigger("lose");
+            buttons[0].enabled = false;
+            buttons[1].enabled = false;
+            buttons[2].enabled = false;
+            buttons[3].enabled = false;
+            buttons[4].enabled = false;
         }
     }
 }

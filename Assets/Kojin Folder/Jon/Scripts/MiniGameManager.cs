@@ -24,6 +24,8 @@ public class MiniGameManager : MonoBehaviour
 
     public string word;
 
+    public ButtonManager buttonManager;
+
 
 
     // Start is called before the first frame update
@@ -67,7 +69,7 @@ public class MiniGameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time has run out!");
+                buttonManager.WinOrLose(false); 
                 timeRemaining = 0;
                 timerIsRunning = false;
             }

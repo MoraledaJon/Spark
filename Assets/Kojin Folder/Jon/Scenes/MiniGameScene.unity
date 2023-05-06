@@ -739,7 +739,7 @@ MonoBehaviour:
   - SUNNY
   questionText: {fileID: 1497701917}
   timerText: {fileID: 273627834}
-  timeRemaining: 60
+  timeRemaining: 10
   timerIsRunning: 0
   buttons:
   - {fileID: 1827045536}
@@ -748,6 +748,7 @@ MonoBehaviour:
   - {fileID: 1503594891}
   - {fileID: 1325599212}
   word: 
+  buttonManager: {fileID: 1666276599}
 --- !u!4 &1266103911
 Transform:
   m_ObjectHideFlags: 0
@@ -761,7 +762,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325599211
 GameObject:
@@ -2375,7 +2376,7 @@ RectTransform:
   - {fileID: 667592169}
   - {fileID: 560671721}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
