@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CardScript : MonoBehaviour
 {
-    // ボタンが押された場合、今回呼び出される関数
-    public void OnClick()
-    {
-        Debug.Log("カードです");  // ログを出力
-    }
+
+    //ボタン押したら別のsceneに行く
+    //public void CardGameStart()
+    //{
+    //    SceneManager.LoadScene("PosePose");
+    //}
 }
