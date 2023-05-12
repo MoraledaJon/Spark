@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 7544650}
   - component: {fileID: 7544649}
   m_Layer: 5
-  m_Name: Answer2
+  m_Name: Choice2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -598,17 +598,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sentences:
-  - Answer:
-    - dog
-    - cat
-    - horse
-    Question: Q. What is this ?
+  - Answers:
+    - 1
+    - 2
+    - 3
+    Question: Q. What is 1+1 ?
     CorrectAnswer: 2
-  - Answer:
+  - Answers:
+    - paper
     - dog
-    - cat
-    - horse
-    Question: Q. What is this ?
+    - table
+    Question: Q. What is animal ?
     CorrectAnswer: 2
   CurrentQuestion: 0
   options:
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 574475006}
   - component: {fileID: 574475005}
   m_Layer: 5
-  m_Name: Answer3
+  m_Name: Choice3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -779,7 +779,7 @@ GameObject:
   - component: {fileID: 585367801}
   - component: {fileID: 585367800}
   m_Layer: 5
-  m_Name: Answer1
+  m_Name: Choice1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

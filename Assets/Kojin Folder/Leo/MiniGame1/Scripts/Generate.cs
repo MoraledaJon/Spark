@@ -26,7 +26,7 @@ public class Generate : MonoBehaviour
         for (int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<Answer>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<Text>().text = Sentences[CurrentQuestion].Answer[i];
+            options[i].transform.GetChild(0).GetComponent<Text>().text = Sentences[CurrentQuestion].Answers[i];
             if(Sentences[CurrentQuestion].CorrectAnswer == i+1)
             {
                 options[i].GetComponent<Answer>().isCorrect = true;
@@ -38,5 +38,6 @@ public class Generate : MonoBehaviour
     {
         CurrentQuestion = Random.Range(0, Sentences.Count);
         QuestionTxT.text = Sentences[CurrentQuestion].Question;
+        SetAnswer();
     }
 }
