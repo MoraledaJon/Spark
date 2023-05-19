@@ -9,6 +9,9 @@ public class Generate : MonoBehaviour
     public int CurrentQuestion;
     public GameObject[] options;
     public Text QuestionTxT;
+    public bool isCorrect = false;
+    //public Generate QuizManager;
+    public Countdown timer;
 
     public void Start()
     {
@@ -18,6 +21,7 @@ public class Generate : MonoBehaviour
     public void correct()
     {
         Sentences.RemoveAt(CurrentQuestion);
+        timer.TimeLeft = 10;
         generateQuestion();
     }
 
@@ -36,8 +40,29 @@ public class Generate : MonoBehaviour
 
     void generateQuestion()
     {
-        CurrentQuestion = Random.Range(0, Sentences.Count);
-        QuestionTxT.text = Sentences[CurrentQuestion].Question;
-        SetAnswer();
+        if(Sentences.Count > 0)
+        {
+            CurrentQuestion = Random.Range(0, Sentences.Count);
+            QuestionTxT.text = Sentences[CurrentQuestion].Question;
+            SetAnswer();
+        }
+        else
+        {
+            Debug.Log("Out of Question");
+        }
+    }
+
+    public void answer()
+    {
+        if (isCorrect)
+        {
+            Debug.Log("CorrectAnswer");
+            correct();
+        }
+        else
+        {
+            Debug.Log("WrongAnswer");
+            correct();
+        }
     }
 }
