@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class StageSelectSceneButton : MonoBehaviour
+public class PosenoScript : MonoBehaviour
 {
-    public void OnClickToGameSceneButton()
-    {
-        SceneManager.LoadScene("StageSelect");
-    }
+    [SerializeField]
+    GameObject pausePanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +16,10 @@ public class StageSelectSceneButton : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnClick()
+    {
+        pausePanel.SetActive(false);
     }
 }

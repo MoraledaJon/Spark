@@ -7,8 +7,8 @@ public class CardScript : MonoBehaviour
 {
 
     //ボタン押したら別のsceneに行く
-    //public void CardGameStart()
-    //{
-    //    SceneManager.LoadScene("PosePose");
-    //}
+    public void CardGameStart()
+    {
+        SceneManager.LoadScene("PlayScene");
+    }
 }

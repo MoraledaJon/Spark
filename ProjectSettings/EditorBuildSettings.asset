@@ -20,9 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Kojin Folder/Haketa/Scenes/Story2Scene.unity
     guid: 36b6bee320473284d9fced4d39043585
-  - enabled: 1
+  - enabled: 0
     path: Assets/Kojin Folder/Haketa/Scenes/StageSelectScene.unity
     guid: b960a905bda2d11458fe0eba58783f79
+  - enabled: 1
+    path: Assets/Kojin Folder/Takahashi/StageSelect.unity
+    guid: cf5614e98419f7747ac8e4b483fb670a
   - enabled: 1
     path: Assets/Kojin Folder/Haketa/Scenes/PlayScene.unity
     guid: 97fb5ccb3f897cd4e927c0a64782857d
