@@ -7,10 +7,10 @@ public class Generate : MonoBehaviour
 {
     public List<QnA> Sentences;
     public int CurrentQuestion;
+    public int NumberQ;
     public GameObject[] options;
+    public GameObject[] NbQuestions;
     public Text QuestionTxT;
-    public bool isCorrect = false;
-    //public Generate QuizManager;
     public Countdown timer;
 
     public void Start()
@@ -49,20 +49,6 @@ public class Generate : MonoBehaviour
         else
         {
             Debug.Log("Out of Question");
-        }
-    }
-
-    public void answer()
-    {
-        if (isCorrect)
-        {
-            Debug.Log("CorrectAnswer");
-            correct();
-        }
-        else
-        {
-            Debug.Log("WrongAnswer");
-            correct();
         }
     }
 }

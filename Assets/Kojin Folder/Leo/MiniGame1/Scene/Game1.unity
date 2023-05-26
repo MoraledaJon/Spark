@@ -273,6 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   QuizManager: {fileID: 311340874}
+  Maru: {fileID: 830756317}
+  Batsu: {fileID: 2077036395}
 --- !u!95 &7544655
 Animator:
   serializedVersion: 5
@@ -325,7 +327,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 953182650}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -498,7 +500,7 @@ RectTransform:
   - {fileID: 574475009}
   - {fileID: 1580604723}
   m_Father: {fileID: 953182650}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -516,6 +518,7 @@ GameObject:
   - component: {fileID: 170340382}
   - component: {fileID: 170340384}
   - component: {fileID: 170340383}
+  - component: {fileID: 170340385}
   m_Layer: 5
   m_Name: 4
   m_TagString: Untagged
@@ -585,6 +588,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170340381}
   m_CullTransparentMesh: 1
+--- !u!114 &170340385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170340381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc37071772f2184893c5ddb5836a010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  QuizManager: {fileID: 311340874}
+  Maru: {fileID: 830756317}
+  Batsu: {fileID: 2077036395}
 --- !u!1 &191867808
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +635,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 953182650}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -756,6 +775,7 @@ GameObject:
   - component: {fileID: 230519599}
   - component: {fileID: 230519601}
   - component: {fileID: 230519600}
+  - component: {fileID: 230519602}
   m_Layer: 5
   m_Name: 3
   m_TagString: Untagged
@@ -825,6 +845,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230519598}
   m_CullTransparentMesh: 1
+--- !u!114 &230519602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230519598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc37071772f2184893c5ddb5836a010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  QuizManager: {fileID: 311340874}
+  Maru: {fileID: 830756317}
+  Batsu: {fileID: 2077036395}
 --- !u!1 &298952594
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,7 +971,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 953182650}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -968,12 +1004,18 @@ MonoBehaviour:
     Question: Q. What is animal ?
     CorrectAnswer: 2
   CurrentQuestion: 0
+  NumberQ: 0
   options:
   - {fileID: 585367799}
   - {fileID: 7544648}
   - {fileID: 574475004}
+  NbQuestions:
+  - {fileID: 649762592}
+  - {fileID: 1200406077}
+  - {fileID: 230519598}
+  - {fileID: 170340381}
+  - {fileID: 2086905498}
   QuestionTxT: {fileID: 218694204}
-  isCorrect: 0
   timer: {fileID: 56663978}
 --- !u!1 &355396658
 GameObject:
@@ -1009,7 +1051,7 @@ RectTransform:
   - {fileID: 170340382}
   - {fileID: 2086905499}
   m_Father: {fileID: 953182650}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1166,6 +1208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   QuizManager: {fileID: 311340874}
+  Maru: {fileID: 830756317}
+  Batsu: {fileID: 2077036395}
 --- !u!95 &574475011
 Animator:
   serializedVersion: 5
@@ -1356,6 +1400,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   QuizManager: {fileID: 311340874}
+  Maru: {fileID: 830756317}
+  Batsu: {fileID: 2077036395}
 --- !u!1 &649762592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,6 +1413,7 @@ GameObject:
   - component: {fileID: 649762593}
   - component: {fileID: 649762595}
   - component: {fileID: 649762594}
+  - component: {fileID: 649762596}
   m_Layer: 5
   m_Name: 1
   m_TagString: Untagged
@@ -1435,6 +1482,98 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649762592}
+  m_CullTransparentMesh: 1
+--- !u!114 &649762596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649762592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc37071772f2184893c5ddb5836a010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  QuizManager: {fileID: 311340874}
+  Maru: {fileID: 830756317}
+  Batsu: {fileID: 2077036395}
+--- !u!1 &830756315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830756316}
+  - component: {fileID: 830756318}
+  - component: {fileID: 830756317}
+  m_Layer: 5
+  m_Name: Maru
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &830756316
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830756315}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 953182650}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 445, y: 463}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &830756317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830756315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ad5ec8a229364224783552bde217c6ca, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &830756318
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830756315}
   m_CullTransparentMesh: 1
 --- !u!1 &953182646
 GameObject:
@@ -1529,6 +1668,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 108893277}
+  - {fileID: 2077036394}
+  - {fileID: 830756316}
   - {fileID: 355396659}
   - {fileID: 191867809}
   - {fileID: 1392717588}
@@ -1634,6 +1775,7 @@ GameObject:
   - component: {fileID: 1200406078}
   - component: {fileID: 1200406080}
   - component: {fileID: 1200406079}
+  - component: {fileID: 1200406081}
   m_Layer: 5
   m_Name: 2
   m_TagString: Untagged
@@ -1703,6 +1845,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200406077}
   m_CullTransparentMesh: 1
+--- !u!114 &1200406081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200406077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc37071772f2184893c5ddb5836a010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  QuizManager: {fileID: 311340874}
+  Maru: {fileID: 830756317}
+  Batsu: {fileID: 2077036395}
 --- !u!1 &1392717587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,7 +1892,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 953182650}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2137,6 +2295,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2077036393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2077036394}
+  - component: {fileID: 2077036396}
+  - component: {fileID: 2077036395}
+  m_Layer: 5
+  m_Name: Batsu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2077036394
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077036393}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 953182650}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 450, y: 463}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2077036395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077036393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 3a83975dbe020524fb0cdf9ed3ddcd4b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2077036396
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077036393}
+  m_CullTransparentMesh: 1
 --- !u!1 &2086905498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,6 +2382,7 @@ GameObject:
   - component: {fileID: 2086905499}
   - component: {fileID: 2086905501}
   - component: {fileID: 2086905500}
+  - component: {fileID: 2086905502}
   m_Layer: 5
   m_Name: 5
   m_TagString: Untagged
@@ -2217,3 +2452,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086905498}
   m_CullTransparentMesh: 1
+--- !u!114 &2086905502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086905498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc37071772f2184893c5ddb5836a010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  QuizManager: {fileID: 311340874}
+  Maru: {fileID: 830756317}
+  Batsu: {fileID: 2077036395}

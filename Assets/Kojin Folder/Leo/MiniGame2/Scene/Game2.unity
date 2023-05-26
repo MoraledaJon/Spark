@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 7544652}
   - component: {fileID: 7544651}
   - component: {fileID: 7544650}
-  - component: {fileID: 7544649}
+  - component: {fileID: 7544654}
   m_Layer: 5
   m_Name: Choice2
   m_TagString: Untagged
@@ -143,20 +143,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7544649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7544648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 213f9f7eec0b6f74bb41d4d3f6964ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCorrect: 0
-  QuizManager: {fileID: 311340874}
 --- !u!114 &7544650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +162,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -200,19 +186,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7544651}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7544649}
-        m_TargetAssemblyTypeName: Answer, Assembly-CSharp
-        m_MethodName: answer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &7544651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +235,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1858227706}
   - {fileID: 196853845}
@@ -273,6 +247,26 @@ RectTransform:
   m_AnchoredPosition: {x: 273, y: 7}
   m_SizeDelta: {x: 300, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &7544654
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7544648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 695fcbb5e077ba246a6eeca252b52d7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &108893276
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +627,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 311340873}
-  - component: {fileID: 311340874}
   m_Layer: 5
   m_Name: Manager
   m_TagString: Untagged
@@ -661,37 +654,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &311340874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311340872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a4d0d596402b944a8ab67a75bdd9bcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sentences:
-  - Answers:
-    - Spark
-    - Stark
-    - Spack
-    Question: "Q. \u30B2\u30FC\u30E0\u306E\u540D\u306F\uFF1F"
-    CorrectAnswer: 1
-  - Answers:
-    - paper
-    - dog
-    - table
-    Question: Q. What is animal ?
-    CorrectAnswer: 2
-  CurrentQuestion: 0
-  options:
-  - {fileID: 585367799}
-  - {fileID: 7544648}
-  - {fileID: 0}
-  QuestionTxT: {fileID: 218694204}
 --- !u!1 &540373290
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +742,6 @@ GameObject:
   - component: {fileID: 585367803}
   - component: {fileID: 585367802}
   - component: {fileID: 585367801}
-  - component: {fileID: 585367800}
   - component: {fileID: 585367805}
   m_Layer: 5
   m_Name: Choice1
@@ -789,20 +750,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &585367800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585367799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 213f9f7eec0b6f74bb41d4d3f6964ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCorrect: 0
-  QuizManager: {fileID: 311340874}
 --- !u!114 &585367801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,19 +793,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 585367802}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 585367800}
-        m_TargetAssemblyTypeName: Answer, Assembly-CSharp
-        m_MethodName: answer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &585367802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,7 +864,7 @@ Animator:
   m_GameObject: {fileID: 585367799}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 993bf02633f374f42b3b359d5cbe1e1a, type: 2}
+  m_Controller: {fileID: 9100000, guid: ca4028c0e15122949b1a49d3a958bfbb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
