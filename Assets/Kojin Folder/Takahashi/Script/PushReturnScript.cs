@@ -22,9 +22,13 @@ public class PushReturnScript : MonoBehaviour
     private Transform[] pos;
     private int[] indexArr = {1,2,3,4,5};
 
+    private List<int> _rightPattern = new List<int>()
+    {
+        3,4,2,1,5
+    };
+    
     public void OnClick()
     {
-        
         for (int i = 0; i < 5; i++)
         {
             moveCard(Cards[i], ref indexArr[i]);
@@ -48,7 +52,7 @@ public class PushReturnScript : MonoBehaviour
         card.transform.DOMove(pos[--x].position, 1f)
             .OnComplete(() => {
                  // カードの並び順を指定した場所にカードをぶち込むことで
-                 // 手t裏側に表示されるように移動する
+                 // 手裏側に表示されるように移動する
                  SortCardLayer();
              });
     }
@@ -59,7 +63,7 @@ public class PushReturnScript : MonoBehaviour
         card.transform.DOMove(pos[x++].position, 1f)
             .OnComplete(() => {
                 // カードの並び順を指定した場所にカードをぶち込むことで
-                // 手t裏側に表示されるように移動する
+                // 手表側に表示されるように移動する
                 SortCardLayer();
             });
         
@@ -67,17 +71,32 @@ public class PushReturnScript : MonoBehaviour
 
     void SortCardLayer()
     {
+              for (int i = 0; i < 5; i++)
+              { 
+                if(Cards[i].transform.localPosition.y < 30)
+              {
+                  Cards[i].transform.SetParent(FrontHolder);
+              }
+              else
+              {
+                  Cards[i].transform.SetParent(BackHolder);
+              }
+          
+              }
+              
+        //      for (int i = 0; i < 5; i++)
+        //  {
+        //      if(Cards[i].transform.localPosition.y < 30)
+        //      {
+        //          Cards[i].transform.SetParent(FrontHolder);
+        //      }
+        //      else
+        //      {
+        //          Cards[i].transform.SetParent(BackHolder);
+        //      }
+        //  }
+     }
+     
 
-        for (int i = 0; i < 5; i++)
-        {
-            if(Cards[i].transform.localPosition.y < 30)
-            {
-                Cards[i].transform.SetParent(FrontHolder);
-            }
-            else
-            {
-                Cards[i].transform.SetParent(BackHolder);
-            }
-        }
-    }
-}
+ }
+   
