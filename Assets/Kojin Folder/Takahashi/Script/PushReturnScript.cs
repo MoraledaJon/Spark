@@ -16,22 +16,30 @@ public class PushReturnScript : MonoBehaviour
     private Transform BackHolder;
 
     [SerializeField]
-    private List<GameObject> Cards;
+    private List<GameObject> cards;
 
     [SerializeField]
     private Transform[] pos;
     private int[] indexArr = {1,2,3,4,5};
 
-    private List<int> _rightPattern = new List<int>()
+    public List<int> layerOrder; // レイヤー順のリスト
+
+    void Start()
     {
-        3,4,2,1,5
-    };
-    
+
+        // シャッフル後のカードのレイヤー順を設定
+        for (int i = 0; i < cards.Count; i++)
+        {
+            cards[i].GetComponent<SpriteRenderer>().sortingOrder = layerOrder[i];
+        }
+    }
+
+
     public void OnClick()
     {
         for (int i = 0; i < 5; i++)
         {
-            moveCard(Cards[i], ref indexArr[i]);
+            moveCard(cards[i], ref indexArr[i]);
         }
     }
 
@@ -40,7 +48,7 @@ public class PushReturnScript : MonoBehaviour
         
         for (int i = 0; i < 5; i++)
         {
-            moveCardback(Cards[i], ref indexArr[i]);
+            moveCardback(cards[i], ref indexArr[i]);
         }
     }
 
@@ -69,6 +77,22 @@ public class PushReturnScript : MonoBehaviour
         
     }
 
+
+    void SortCardLayer()
+    {
+
+        // カードの順序を指定したレイヤー順に並び替える
+        for (int i = 0; i < cards.Count; i++)
+        {
+            cards[i].GetComponent<SpriteRenderer>().sortingOrder = layerOrder[i];
+        }
+
+    }
+
+
+
+    /*
+     
     void SortCardLayer()
     {
               for (int i = 0; i < 5; i++)
@@ -83,20 +107,11 @@ public class PushReturnScript : MonoBehaviour
               }
           
               }
-              
-        //      for (int i = 0; i < 5; i++)
-        //  {
-        //      if(Cards[i].transform.localPosition.y < 30)
-        //      {
-        //          Cards[i].transform.SetParent(FrontHolder);
-        //      }
-        //      else
-        //      {
-        //          Cards[i].transform.SetParent(BackHolder);
-        //      }
-        //  }
-     }
+ 
+     
+     */
+}
      
 
- }
+ 
    

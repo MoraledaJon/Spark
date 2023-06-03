@@ -4779,7 +4779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FrontHolder: {fileID: 1326017361}
   BackHolder: {fileID: 632372235}
-  Cards:
+  cards:
   - {fileID: 1729619840}
   - {fileID: 1549055417}
   - {fileID: 1700324072}
@@ -4791,3 +4791,4 @@ MonoBehaviour:
   - {fileID: 1364106041}
   - {fileID: 884873504}
   - {fileID: 1611206639}
+  layerOrder: 0100000001000000010000000100000001000000
