@@ -7,7 +7,7 @@ public class StageSelectSceneButton : MonoBehaviour
 {
     public void OnClickToGameSceneButton()
     {
-        SceneManager.LoadScene("StageSelectScene");
+        SceneManager.LoadScene(15);
     }
     // Start is called before the first frame update
     void Start()

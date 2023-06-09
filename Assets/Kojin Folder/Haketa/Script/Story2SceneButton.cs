@@ -7,7 +7,7 @@ public class Story2SceneButton : MonoBehaviour
 { 
     public void OnClickToGameSceneButton()
     {
-        SceneManager.LoadScene("Story2Scene");
+        SceneManager.LoadScene(4);
     }
     // Start is called before the first frame update
     void Start()

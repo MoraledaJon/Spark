@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class CardScript : MonoBehaviour
 {
+    public void DirEasy()
+    {
+        //SceneManager.LoadScene(UnityEngine.Random.Range(14, 18));
+        SceneManager.LoadScene(3);
+    }
 
-    //ボタン押したら別のsceneに行く
-    //public void CardGameStart()
-    //{
-    //    SceneManager.LoadScene("PosePose");
-    //}
 }
