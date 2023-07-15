@@ -8,22 +8,37 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 using Unity.Mathematics;
+using System.Xml.Schema;
 
 public class ReadScript : MonoBehaviour
 {
-
+    public Image spriteRenderer;
+    public Sprite sprite;
+    public Sprite sprite2;
     public TextMeshProUGUI txt;
     public GameObject prefbutton;
+    public GameObject prefpanel;
     public Transform btnpanel;
+    public Transform btnpanel2;
+    public GameObject endpanl;
     bool choice = false;
     string key = "";
     string nextLine = "";
     PreloadManager manager;
+    bool preload = true;
     bool canclick = true;
+    
+
     private void Start()
     {
         manager = GameObject.Find("PreloadManager").GetComponent<PreloadManager>();
         StartCoroutine(CoFadeIn()); 
+        prefpanel.SetActive(false);
+        if(manager.preload)
+            spriteRenderer.sprite = sprite2;
+        else
+            spriteRenderer.sprite = sprite;
+
     }
 
     IEnumerator CoFadeIn()
@@ -74,7 +89,7 @@ public class ReadScript : MonoBehaviour
     IEnumerator CoWrite(string s)
     {
         string ns = "";
-        CheckForTags(ref s,txt);
+        bool d = CheckForTags(ref s,txt);
 
         if (s[0] == '$')  //‘I‘ðŽˆ‚ ‚é
         {
@@ -88,6 +103,9 @@ public class ReadScript : MonoBehaviour
                 GameObject button2 = Instantiate(prefbutton, btnpanel);
                 button2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = nextLine.TrimStart('$').Substring(0,nextLine.Length -4);
                 button2.GetComponent<Button>().onClick.AddListener(delegate { Choose(nextLine, true); });
+                prefpanel.SetActive(true);
+                button1.GetComponent<Button>().onClick.AddListener(OnClickButton);
+                button2.GetComponent<Button>().onClick.AddListener(OnClickButton);
             }
            else
             {
@@ -116,7 +134,7 @@ public class ReadScript : MonoBehaviour
                     ReadString();
                 }
             }
-            else //no starting key
+            else if(d)//no starting key
             {
                 foreach (char c in s)
                 {
@@ -125,11 +143,13 @@ public class ReadScript : MonoBehaviour
                     yield return new WaitForSeconds(0.05f);
                 }
             }
-        }     
+        }
+        
     }
 
-    private void CheckForTags(ref string s,TextMeshProUGUI t)
+    private bool CheckForTags(ref string s,TextMeshProUGUI t)
     {
+        bool showtext = true;
         if (s.Contains("!"))
         {
             s = s.Trim('!');
@@ -139,26 +159,48 @@ public class ReadScript : MonoBehaviour
         {
             txt.fontStyle = FontStyles.Normal;
         }
-        if(s.Contains("load_minigame"))
+        if (s.Contains("Endprologue"))
         {
-            int i = UnityEngine.Random.Range(0, manager.levels.Count);
-            int lvlnum = manager.levels[i];
-            manager.levels.RemoveAt(i);
-            s = " ";
-            StartCoroutine(ChangeScene(UnityEngine.Random.Range(14,18)));
+            spriteRenderer.sprite = sprite;
+            manager.preload = false;
+            showtext = false;
         }
+        if (s.Contains("Startprologue"))
+        {
+            spriteRenderer.sprite = sprite2;
+            manager.preload = true;
+            showtext = false;
+        }
+        if (s.Contains("end"))
+        {
+            endpanl.SetActive(true);
+            showtext = false;
+        }
+        //if (s.Contains("load_minigame"))
+        //{
+        //    int i = UnityEngine.Random.Range(0, manager.levels.Count);
+        //    int lvlnum = manager.levels[i];
+        //    manager.levels.RemoveAt(i);
+        //    s = " ";
+        //    StartCoroutine(ChangeScene(UnityEngine.Random.Range(14,18)));
+        //}
         if (s.Contains("load_home"))
         {
+            showtext = false;
             StartCoroutine(ChangeScene(2));
-        }
-        if (s.Contains("load_story3"))
-        {
-            StartCoroutine(ChangeScene(6));
         }
         if (s.Contains("minigame"))
         {
+            showtext = false;
+
+            if (manager.cstate == 0)
             StartCoroutine(ChangeScene(14));
+           else
+            StartCoroutine(ChangeScene(16));
         }
+        
+        return showtext;
+
     }
 
     IEnumerator ChangeScene(int i)
@@ -175,7 +217,10 @@ public class ReadScript : MonoBehaviour
         SceneManager.LoadScene(i);
     }
 
-   
- 
+    public void OnClickButton()
+    { 
+        prefpanel.SetActive(false);
+        
+    }
 
 }

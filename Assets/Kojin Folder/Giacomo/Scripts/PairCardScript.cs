@@ -25,6 +25,7 @@ public class PairCardScript : MonoBehaviour
     public Transform deckpos;
     PreloadManager manager;
     float sec = 120;
+    int Score;
 
     void Start()
     {
@@ -134,6 +135,7 @@ public class PairCardScript : MonoBehaviour
 
     IEnumerator CoWin()
     {
+        Score++;
         animator.SetTrigger("gameclear");
         yield return new WaitForSeconds(3);
         Image FadeOut = GameObject.Find("FadeOut").GetComponent<Image>();
@@ -145,7 +147,8 @@ public class PairCardScript : MonoBehaviour
             yield return 0;
         }
         PreloadManager manager = GameObject.Find("PreloadManager").GetComponent<PreloadManager>();
-        SceneManager.LoadScene(14);
+        manager.cstate = (PreloadManager.state)1;
+        SceneManager.LoadScene(2);
     }
 
     private void Update()

@@ -150,7 +150,7 @@ public class SoujiManager : MonoBehaviour
             yield return 0;
         }
         PreloadManager manager = GameObject.Find("PreloadManager").GetComponent<PreloadManager>();
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(1);
     }
     IEnumerator AnimConsoleText()
     {

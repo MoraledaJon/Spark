@@ -60,15 +60,21 @@ EditorBuildSettings:
     path: Assets/Kojin Folder/Haketa/Scenes/EndrollScene.unity
     guid: f1fbc05d0fcea5c4cad3cd9a4643e0de
   - enabled: 1
-    path: Assets/Kojin Folder/Giacomo/Scenes/souji_mg.unity
-    guid: 70867726ecd36094b89a64a2fd30458d
-  - enabled: 1
     path: Assets/Kojin Folder/Giacomo/Scenes/paircar_mg.unity
     guid: f81e9d0558cc5174791144affe820ed5
+  - enabled: 1
+    path: Assets/Kojin Folder/Giacomo/Scenes/souji_mg.unity
+    guid: 70867726ecd36094b89a64a2fd30458d
   - enabled: 1
     path: Assets/Kojin Folder/Jon/Scenes/MiniGameScene.unity
     guid: 3877ad96d7909814da19bd6350e6787a
   - enabled: 1
     path: Assets/Kojin Folder/Jon/Scenes/Minigame2.unity
     guid: 8bac50c76db27a74fb0e116ab95253b2
+  - enabled: 1
+    path: Assets/Kojin Folder/Leo/MiniGame1/Scene/Game1.unity
+    guid: cea30688e437efd45b822c175634c64a
+  - enabled: 1
+    path: Assets/Kojin Folder/Leo/MiniGame2/Scene/Game2.unity
+    guid: 6c7b1ec7cab5f994088523f951c4ab9f
   m_configObjects: {}

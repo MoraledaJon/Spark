@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Generate : MonoBehaviour
@@ -48,7 +49,7 @@ public class Generate : MonoBehaviour
         }
         else
         {
-            Debug.Log("Out of Question");
+            SceneManager.LoadScene(15);
         }
     }
 }

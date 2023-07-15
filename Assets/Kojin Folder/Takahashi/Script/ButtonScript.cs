@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonScript : MonoBehaviour
-
-
 {
-
 
     [SerializeField]
     GameObject pausePanel;

@@ -8,6 +8,14 @@ using UnityEngine.UI;
 
 public class PreloadManager : MonoBehaviour
 {
+    public enum state
+    {
+        tutorial,
+        game,
+        end
+    }
+
+
     [HideInInspector]
     public StreamReader reader;
     string path = "Assets/Kojin Folder/Giacomo/Resources/read.txt";
@@ -16,6 +24,8 @@ public class PreloadManager : MonoBehaviour
     public string[] WinPhrases;
     public string[] LosePhrases;
     public List<byte> levels;
+    public bool preload = true;
+    public state cstate = state.tutorial;
 
     private void Awake()
     {
@@ -53,6 +63,17 @@ public class PreloadManager : MonoBehaviour
                 break;
         }
     }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.R))
+        {
 
- 
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了
+#else
+    Application.Quit();//ゲームプレイ終了
+#endif
+        }
+    }
+
 }
