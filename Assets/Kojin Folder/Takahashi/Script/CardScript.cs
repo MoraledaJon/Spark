@@ -5,10 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class CardScript : MonoBehaviour
 {
-
-    //ボタン押したら別のsceneに行く
-    public void CardGameStart()
+    PreloadManager manager;
+    private void Start()
     {
-        SceneManager.LoadScene("PlayScene");
+        manager = GameObject.Find("PreloadManager").GetComponent<PreloadManager>();
     }
+    public void DirEasy()
+    {
+        //SceneManager.LoadScene(UnityEngine.Random.Range(14, 18));
+        if (manager.cstate == (PreloadManager.state)0)
+        {
+            SceneManager.LoadScene(11);
+        }
+        else
+            SceneManager.LoadScene(1);
+    }
+
 }

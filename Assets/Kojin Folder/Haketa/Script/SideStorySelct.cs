@@ -7,7 +7,7 @@ public class SideStorySelct : MonoBehaviour
 {
     public void OnClickToGameSceneButton()
     {
-        SceneManager.LoadScene("SideStorySelctScene");
+        SceneManager.LoadScene("SideSelct");
     }
     // Start is called before the first frame update
     void Start()

@@ -1,0 +1,59 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "呼吸"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "",
+			"Name": "←腕の揺れ"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "",
+			"Name": "←手首の揺れ"
+		},
+		{
+			"Id": "Param4",
+			"GroupId": "",
+			"Name": "指の開閉"
+		},
+		{
+			"Id": "Param5",
+			"GroupId": "",
+			"Name": "頭の傾き"
+		},
+		{
+			"Id": "Param",
+			"GroupId": "",
+			"Name": "驚き"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "Part7",
+			"Name": "ビリヤニ修正后7 14.psd（対応無し）"
+		},
+		{
+			"Id": "Part",
+			"Name": "ビリヤニ"
+		},
+		{
+			"Id": "Part3",
+			"Name": "手"
+		},
+		{
+			"Id": "Part2",
+			"Name": "リボン"
+		}
+	]
+}

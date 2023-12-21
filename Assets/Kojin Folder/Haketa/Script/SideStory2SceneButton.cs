@@ -7,7 +7,7 @@ public class SideStory2SceneButton : MonoBehaviour
 {
     public void OnClickToGameSceneButton()
     {
-        SceneManager.LoadScene("SideStory2Scene");
+        SceneManager.LoadScene("Side2");
     }
     // Start is called before the first frame update
     void Start()

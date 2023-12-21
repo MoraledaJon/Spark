@@ -25,11 +25,12 @@ public class PairCardScript : MonoBehaviour
     public Transform deckpos;
     PreloadManager manager;
     float sec = 120;
+    int Score;
 
     void Start()
     {
-        manager = GameObject.Find("PreloadManager").GetComponent<PreloadManager>(); 
-        StartCoroutine(CoFadeIn());  
+        manager = GameObject.Find("PreloadManager").GetComponent<PreloadManager>();
+        StartCoroutine(CoFadeIn());
     }
 
     private void StartGame()
@@ -75,7 +76,7 @@ public class PairCardScript : MonoBehaviour
             cards.Add(card);
             c.GetComponent<Button>().onClick.AddListener(delegate { FlipCard(c); });
 
-            while (Vector2.Distance(c.transform.position, objcards[i].transform.position)>0.2f)
+            while (Vector2.Distance(c.transform.position, objcards[i].transform.position) > 0.2f)
             {
                 c.transform.position = Vector2.MoveTowards(c.transform.position, objcards[i].transform.position, 3000 * Time.deltaTime);
                 yield return 0;
@@ -94,7 +95,7 @@ public class PairCardScript : MonoBehaviour
             StartCoroutine(CoFlip(card));
             opencards++;
         }
-       
+
     }
 
     IEnumerator CoFlip(GameObject card)
@@ -107,19 +108,19 @@ public class PairCardScript : MonoBehaviour
                 cardface.SetActive(true);
             yield return null;
         }
-        if(openCard != null)
+        if (openCard != null)
         {
-            if(cardface.GetComponent<Image>().sprite != openCard.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite)
+            if (cardface.GetComponent<Image>().sprite != openCard.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite)
             {
-    
+
                 yield return new WaitForSeconds(0.25f);
                 StartCoroutine(CoFlipBack(card));
                 StartCoroutine(CoFlipBack(openCard));
-                openCard = null;     
+                openCard = null;
             }
             else
             {
-                opencards-= 2;
+                opencards -= 2;
                 openCard = null;
                 GotCards += 2;
                 manager.Talk(0);
@@ -134,6 +135,7 @@ public class PairCardScript : MonoBehaviour
 
     IEnumerator CoWin()
     {
+        Score++;
         animator.SetTrigger("gameclear");
         yield return new WaitForSeconds(3);
         Image FadeOut = GameObject.Find("FadeOut").GetComponent<Image>();
@@ -145,14 +147,20 @@ public class PairCardScript : MonoBehaviour
             yield return 0;
         }
         PreloadManager manager = GameObject.Find("PreloadManager").GetComponent<PreloadManager>();
-        SceneManager.LoadScene(1);
+        manager.cstate = (PreloadManager.state)1;
+        SceneManager.LoadScene(2);
     }
 
     private void Update()
     {
-        if(timer.activeSelf)
-        sec -= Time.deltaTime;
+        if (timer.activeSelf)
+            sec -= Time.deltaTime;
         timer.GetComponent<TextMeshProUGUI>().text = sec.ToString("F0");
+
+        if (Input.GetKeyDown(KeyCode.C)) //debug
+        {
+            StartCoroutine(CoWin());
+        }
 
     }
 
@@ -160,7 +168,8 @@ public class PairCardScript : MonoBehaviour
     {
         GameObject cardface = card.transform.GetChild(0).transform.GetChild(0).gameObject;
         while (card.transform.rotation.y >= 0)
-        {;
+        {
+            ;
             card.transform.Rotate(Vector3.down * Time.deltaTime * 400);
             if (card.transform.rotation.y < 0.7f && cardface.activeSelf == true)
                 cardface.SetActive(false);

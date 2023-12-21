@@ -1,0 +1,173 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "",
+			"Name": "左目　開閉"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "",
+			"Name": "左目　笑顔"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "",
+			"Name": "指　開閉"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "",
+			"Name": "腕回転"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "",
+			"Name": "目玉 X"
+		},
+		{
+			"Id": "ParamBrowRAngle",
+			"GroupId": "",
+			"Name": "右眉　角度"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "",
+			"Name": "角度 Z"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "",
+			"Name": "口　開閉"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "手２"
+		},
+		{
+			"Id": "Part2",
+			"Name": "手１"
+		},
+		{
+			"Id": "Part6",
+			"Name": "装飾"
+		},
+		{
+			"Id": "Part7",
+			"Name": "揺れる金具"
+		},
+		{
+			"Id": "Part8",
+			"Name": "ジャケット襟"
+		},
+		{
+			"Id": "Part9",
+			"Name": "胸ポケット"
+		},
+		{
+			"Id": "Part10",
+			"Name": "ジャケット左"
+		},
+		{
+			"Id": "Part11",
+			"Name": "ジャケット右"
+		},
+		{
+			"Id": "Part12",
+			"Name": "ジャケット中央"
+		},
+		{
+			"Id": "Part13",
+			"Name": "ネクタイ"
+		},
+		{
+			"Id": "Part14",
+			"Name": "シャツ"
+		},
+		{
+			"Id": "Part15",
+			"Name": "髪"
+		},
+		{
+			"Id": "Part16",
+			"Name": "顔パーツ"
+		},
+		{
+			"Id": "Part17",
+			"Name": "口"
+		},
+		{
+			"Id": "Part18",
+			"Name": "眉"
+		},
+		{
+			"Id": "Part19",
+			"Name": "目左"
+		},
+		{
+			"Id": "Part20",
+			"Name": "目右"
+		},
+		{
+			"Id": "Part21",
+			"Name": "輪郭"
+		},
+		{
+			"Id": "Part22",
+			"Name": "耳"
+		},
+		{
+			"Id": "Part23",
+			"Name": "髪後ろ"
+		},
+		{
+			"Id": "Part24",
+			"Name": "首"
+		},
+		{
+			"Id": "PartSketch0",
+			"Name": "[ 下絵 ]"
+		},
+		{
+			"Id": "Part3",
+			"Name": "指"
+		},
+		{
+			"Id": "Part4",
+			"Name": "袖"
+		},
+		{
+			"Id": "Part5",
+			"Name": "腕"
+		}
+	],
+	"CombinedParameters": [
+		[
+			"ParamAngleY",
+			"ParamAngleZ"
+		],
+		[
+			"ParamMouthForm",
+			"ParamMouthOpenY"
+		]
+	]
+}

@@ -22,14 +22,19 @@ public class SoujiManager : MonoBehaviour
     public int nFolder;
     [HideInInspector]
     public int nViruses;
-    PreloadManager manager;
+    PreloadManager manager = null;
     byte currentlevel = 0;
+    private byte numOfQuestions = 4;
+    private bool perfect = true;
+
+
 
     private void Start()
     {
         manager = GameObject.Find("PreloadManager").GetComponent<PreloadManager>();
         StartCoroutine(CoFadeIn());
     }
+
 
     IEnumerator CoFadeIn()
     {
@@ -50,6 +55,7 @@ public class SoujiManager : MonoBehaviour
     }
     IEnumerator CoLevelCompleted(byte level)
     {
+        manager.success += (byte)(10 / numOfQuestions);
         currentlevel = level;
         timermove = false;
         animOver = false;
@@ -82,7 +88,7 @@ public class SoujiManager : MonoBehaviour
         switch(level) 
         {
                 case 0:
-                StartCoroutine(CoLoadLevel(levelpanels[0], "要らないファイルを削除する\r\n"));
+                StartCoroutine(CoLoadLevel(levelpanels[0], "全てのファイルを削除する\r\n"));
                 break;
                 case 1:
                 StartCoroutine(CoLoadLevel(levelpanels[1], "/documents/spark\r\n隙間にフォルダーを入れる\r\n"));
@@ -120,6 +126,12 @@ public class SoujiManager : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.C)) //debug
+        {
+            StartCoroutine(CoWin());
+        }
+
         if (timermove)
         {
             timer -= Time.deltaTime;
@@ -127,6 +139,7 @@ public class SoujiManager : MonoBehaviour
             if (timer <= 0)
             {
                 timer = 0;
+                perfect = false;
                 StartCoroutine(CoLevelFailed(currentlevel));
             }
         }
@@ -139,8 +152,11 @@ public class SoujiManager : MonoBehaviour
     }
     IEnumerator CoWin()
     {
-        gcanim.SetTrigger("gameclear");
-        yield return new WaitForSeconds(3);
+        //gcanim.SetTrigger("gameclear");
+        if (perfect)
+            manager.platinum++;
+        manager.ShowResutl();
+        yield return new WaitForSeconds(6.5f);
         Image FadeOut = GameObject.Find("FadeOut").GetComponent<Image>();
         Color tmpc = FadeOut.color;
         while (FadeOut.color.a < 1)
@@ -149,8 +165,9 @@ public class SoujiManager : MonoBehaviour
             FadeOut.color = tmpc;
             yield return 0;
         }
-        PreloadManager manager = GameObject.Find("PreloadManager").GetComponent<PreloadManager>();
-        SceneManager.LoadScene(1);
+
+        SceneManager.LoadScene(3);
+        
     }
     IEnumerator AnimConsoleText()
     {

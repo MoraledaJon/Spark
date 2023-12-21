@@ -31,11 +31,52 @@ public class MiniGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int rnd = Random.Range(0, words.Count);
+        Shuffle("");
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                DisplayTime(timeRemaining);
+            }
+            else
+            {
+                buttonManager.WinOrLose(true);
+            }
+        }
+        
+    }
+
+    void DisplayTime(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void Shuffle(string usedWord)
+    {
+        Debug.Log("shuffling " + usedWord);
+        for (int i = 0; i < words.Count; i++)
+        {
+            if (words[i] == usedWord)
+            {
+                words.RemoveAt(i);
+            }
+        }
+
+        int rnd = Random.Range(0, words.Count);
+        
         word = words[rnd];
 
-        questionText.text = "Q. "+ word + " になる様に選んで";    
+        questionText.text = "Q. " + word + " になる様に選んで";
 
         timerIsRunning = true;
 
@@ -53,38 +94,6 @@ public class MiniGameManager : MonoBehaviour
         {
             buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = letters[i] + "";
         }
-
-
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (timerIsRunning)
-        {
-            if (timeRemaining > 0)
-            {
-                timeRemaining -= Time.deltaTime;
-                DisplayTime(timeRemaining);
-            }
-            else
-            {
-                buttonManager.WinOrLose(false); 
-                timeRemaining = 0;
-                timerIsRunning = false;
-            }
-        }
-        
-    }
-
-    void DisplayTime(float timeToDisplay)
-    {
-        timeToDisplay += 1;
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    }
-
 
 }

@@ -8,23 +8,75 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 using Unity.Mathematics;
+using System.Xml.Schema;
 
 public class ReadScript : MonoBehaviour
 {
+    //public Image spriteRenderer;
+    public GameObject mainChara;
+    //public Sprite sprite;
+    public GameObject live2dObject;
+    //public Sprite sprite2;
+    public GameObject live2dObject2;
+
+    //live2dObject2ÇÃç¿ïW
+    [SerializeField]
+    private float live2dObject2pos = 5;
 
     public TextMeshProUGUI txt;
     public GameObject prefbutton;
+    public GameObject prefpanel;
     public Transform btnpanel;
+    public Transform btnpanel2;
+    public GameObject endpanl;
     bool choice = false;
     string key = "";
     string nextLine = "";
     PreloadManager manager;
+    bool preload = true;
     bool canclick = true;
+
+    public static int p;
+
+    public AudioClip[] se;
+
+    AudioSource audioSource;
+
+    public GameObject player;
+
+
     private void Start()
     {
         manager = GameObject.Find("PreloadManager").GetComponent<PreloadManager>();
         StartCoroutine(CoFadeIn()); 
+        prefpanel.SetActive(false);
+        if (manager.preload)
+        {
+            //spriteRenderer.sprite = sprite2;
+            //mainChara = Instantiate(live2dObject);
+            mainChara = Instantiate(live2dObject);
+            mainChara.transform.localScale = 10f * Vector3.one;
+
+            mainChara = Instantiate(live2dObject2);
+            mainChara.transform.localScale = 10f * Vector3.one;
+            mainChara.transform.position = new Vector3(live2dObject2pos, 0, 0);
+        }
+        else
+        {
+
+            //spriteRenderer.sprite = sprite;
+            mainChara = Instantiate(live2dObject);
+            mainChara.transform.localScale = 10f * Vector3.one;
+
+            mainChara = Instantiate(live2dObject2);
+            mainChara.transform.localScale = 10f * Vector3.one;
+            mainChara.transform.position = new Vector3(live2dObject2pos, 0, 0);
+
+            audioSource = GetComponent<AudioSource>();
+        }
     }
+
+
 
     IEnumerator CoFadeIn()
     {
@@ -74,7 +126,7 @@ public class ReadScript : MonoBehaviour
     IEnumerator CoWrite(string s)
     {
         string ns = "";
-        CheckForTags(ref s,txt);
+        bool d = CheckForTags(ref s,txt);
 
         if (s[0] == '$')  //ëIëéàÇ†ÇÈ
         {
@@ -88,12 +140,17 @@ public class ReadScript : MonoBehaviour
                 GameObject button2 = Instantiate(prefbutton, btnpanel);
                 button2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = nextLine.TrimStart('$').Substring(0,nextLine.Length -4);
                 button2.GetComponent<Button>().onClick.AddListener(delegate { Choose(nextLine, true); });
+                prefpanel.SetActive(true);
+                button1.GetComponent<Button>().onClick.AddListener(OnClickButton);
+                button2.GetComponent<Button>().onClick.AddListener(OnClickButton);
             }
            else
             {
                 GameObject button = Instantiate(prefbutton, btnpanel);
                 button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = s.TrimStart('$').Substring(0,s.Length - 4);
                 button.GetComponent<Button>().onClick.AddListener(delegate { Choose(s,false); });
+                prefpanel.SetActive(true);
+                button.GetComponent<Button>().onClick.AddListener(OnClickButton);
             }
         }
         else 
@@ -116,7 +173,7 @@ public class ReadScript : MonoBehaviour
                     ReadString();
                 }
             }
-            else //no starting key
+            else if(d)//no starting key
             {
                 foreach (char c in s)
                 {
@@ -125,11 +182,13 @@ public class ReadScript : MonoBehaviour
                     yield return new WaitForSeconds(0.05f);
                 }
             }
-        }     
+        }
+        
     }
 
-    private void CheckForTags(ref string s,TextMeshProUGUI t)
+    private bool CheckForTags(ref string s,TextMeshProUGUI t)
     {
+        bool showtext = true;
         if (s.Contains("!"))
         {
             s = s.Trim('!');
@@ -139,14 +198,70 @@ public class ReadScript : MonoBehaviour
         {
             txt.fontStyle = FontStyles.Normal;
         }
-        if(s.Contains("load_minigame"))
+        if (s.Contains("Endprologue"))
         {
-            int i = UnityEngine.Random.Range(0, manager.levels.Count);
-            int lvlnum = manager.levels[i];
-            manager.levels.RemoveAt(i);
-            s = " ";
-            StartCoroutine(ChangeScene(lvlnum));
+            if (mainChara) Destroy(mainChara);
+            //spriteRenderer.sprite = sprite;
+            mainChara = Instantiate(live2dObject);
+            manager.preload = false;
+            showtext = false;
+            
         }
+        if (s.Contains("Startprologue"))
+        {
+            if (mainChara) Destroy(mainChara);
+            //spriteRenderer.sprite = sprite2;
+            mainChara = Instantiate(live2dObject2);
+            manager.preload = false;
+            //manager.preload = true;
+            showtext = false;
+        }
+        if (s.Contains("end"))
+        {
+            endpanl.SetActive(true);
+            showtext = false;
+            SceneManager.LoadScene("EndrollScene");
+        }
+        //if (s.Contains("load_minigame"))
+        //{
+        //    int i = UnityEngine.Random.Range(0, manager.levels.Count);
+        //    int lvlnum = manager.levels[i];
+        //    manager.levels.RemoveAt(i);
+        //    s = " ";
+        //    StartCoroutine(ChangeScene(UnityEngine.Random.Range(14,18)));
+        //}
+        if (s.Contains("load_home"))
+        {
+            showtext = false;
+            StartCoroutine(ChangeScene(2));
+        }
+        if (s.Contains("load_slect"))
+        {
+            showtext = false;
+            StartCoroutine(ChangeScene(3));
+        }
+        if (s.Contains("minigame"))
+        {
+            showtext = false;
+
+            if (manager.cstate == 0)
+            StartCoroutine(ChangeScene(11));
+           else
+            StartCoroutine(ChangeScene(13));
+        }
+        if (s.Contains("se"))
+        {
+            audioSource = GetComponent<AudioSource>(); 
+            audioSource.PlayOneShot(se[p]);
+            p++;
+        }
+        if (s.Contains("talk"))
+        {
+
+            mainChara.GetComponent<Animator>().SetBool("Bool", false);
+        }
+        return showtext;
+
     }
 
     IEnumerator ChangeScene(int i)
@@ -162,6 +277,11 @@ public class ReadScript : MonoBehaviour
         }
         SceneManager.LoadScene(i);
     }
- 
+
+    public void OnClickButton()
+    { 
+        prefpanel.SetActive(false);
+        
+    }
 
 }
